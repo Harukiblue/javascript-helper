@@ -6,7 +6,7 @@ function JSHelper(LogOn){
  */
 JSHelper.prototype.Select = function(s, i){
     this.params = Array.prototype.slice.call(arguments, 0);
-	if(s === undefined || s === null || (typeof(s) !== "string" || typeof(2) !== "object")){
+	if(s === undefined || s === null || (typeof(s) !== "string" && typeof(2) !== "object")){
 		return this;
 	}else if(typeof(s) === "object"){
         this.selector = s;
@@ -374,22 +374,21 @@ JSHelper.prototype.Cookie = function(){
 /**
  * Copy
  */
-JSHelper.prototype.Copy = function(id){
-    if(id === undefined && this.params[0] !== undefined) id = this.params[0]; 
-	var selectText = function(containerid) {
+JSHelper.prototype.Copy = function(){
+	var selectText = function(elem) {
 		if (document.selection) {
 			var range = document.body.createTextRange();
-			range.moveToElementText(document.getElementById(containerid));
+			range.moveToElementText(elem);
 			range.select();
 		} else if (window.getSelection) {
 			window.getSelection().removeAllRanges()
 			var range = document.createRange();
-			range.selectNode(document.getElementById(containerid));
+			range.selectNode(elem);
 			window.getSelection().addRange(range);
 		}
 	};
 	
-	selectText(id);
+	selectText(this.selectedElem);
 	try {
 		var successful = document.execCommand('copy');
 	} catch (err) {
