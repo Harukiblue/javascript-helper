@@ -372,6 +372,32 @@ JSHelper.prototype.Cookie = function(){
     return new Cookie();
 }
 /**
+ * Copy
+ */
+JSHelper.prototype.Copy = function(id){
+    if(id === undefined && this.params[0] !== undefined) id = this.params[0]; 
+	var selectText = function(containerid) {
+		if (document.selection) {
+			var range = document.body.createTextRange();
+			range.moveToElementText(document.getElementById(containerid));
+			range.select();
+		} else if (window.getSelection) {
+			window.getSelection().removeAllRanges()
+			var range = document.createRange();
+			range.selectNode(document.getElementById(containerid));
+			window.getSelection().addRange(range);
+		}
+	};
+	
+	selectText(id);
+	try {
+		var successful = document.execCommand('copy');
+	} catch (err) {
+	}
+	window.getSelection().removeAllRanges();
+}
+
+/**
  * Instance and optional Facade
  */
 var JSH = new JSHelper();
