@@ -193,11 +193,11 @@ function Switch(){
 	this.collection = new Array();
 }
 Switch.prototype.Add = function(condition, callback){
-	this.collection.push({_condition:  condition, _callback: callback});
+	this.collection.push({condition:  condition, callback: callback});
 }
 Switch.prototype.DoIf = function(condition){
 	for(var i = 0; i < this.collection.length; i++){
-		if(this.collection[i]._condition === condition) return this.collection[i].callback();
+		if(this.collection[i].condition === condition) return this.collection[i].callback();
 	}
 	return null;
 }
@@ -226,8 +226,14 @@ JSHelper.prototype.ObjectArray = function(arr){
  * Replace
  */
 JSHelper.prototype.Replace = function(text, pattern, value,options){
-	options = options === undefined ? "g" : options;
+    options = options === undefined ? "g" : options;
 	text.replace(new RegExp(pattern, options), value);
+}
+/**
+ * Redirect
+ */
+JSHelper.prototype.Redirect = function(url){
+    window.location = url;
 }
 /**
  * Instance and optional Facade
