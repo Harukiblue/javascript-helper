@@ -307,6 +307,20 @@ JSHelper.prototype.RandomDecimal = function(max, min){
     return Math.random() * (max - min) + min; 
 }
 /**
+ * Query String
+ */
+JSHelper.prototype.QueryString = function(name, url) {
+    if(name === undefined && this.params[0] !== undefined) name = this.params[0]; 
+    if(url === undefined && this.params[1] !== undefined) url = this.params[1]; 
+    url = url === undefined ? window.location.href : url;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+    var results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+/**
  * Instance and optional Facade
  */
 var JSH = new JSHelper();
