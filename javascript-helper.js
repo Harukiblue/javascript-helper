@@ -395,9 +395,39 @@ JSHelper.prototype.Copy = function(){
 	}
 	window.getSelection().removeAllRanges();
 }
-
+/**
+ * DetectBrowser
+ */
+JSHelper.prototype.DetectBrowser = function(){
+    result = {isIE: false};
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE ');
+    
+    if (msie > 0) {
+    result.version = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    result.isIE = true;
+      return result;
+    }
+  
+    var trident = ua.indexOf('Trident/');
+    if (trident > 0) {
+      var rv = ua.indexOf('rv:');
+      result.version = parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+      result.isIE = true;
+      return result;
+    }
+  
+    var edge = ua.indexOf('Edge/');
+    if (edge > 0) {
+    result.version = parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+    result.isIE = true;
+      return result;
+    }
+    return result;
+  }
 /**
  * Instance and optional Facade
  */
 var JSH = new JSHelper();
 var $ = JSH.Select.bind(JSH);
+var j$ = JSH;
