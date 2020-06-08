@@ -205,6 +205,31 @@ JSHelper.prototype.Switch = function(){
     return new Switch();
 }
 /**
+ * Object Array
+ */
+function ObjectArray(arr){
+	this.array = arr === undefined ? new Array() : arr;
+}
+ObjectArray.prototype.Sort = function(key){
+	key = key === undefined ? Object.keys(arr)[0] : key;
+	this.array = this.array.sort(function(a, b){
+		if(a[key] < b[key]) return -1;
+		if(a[key] > b[key]) return 1;
+		return 0;
+	});
+	return this.array;
+}
+JSHelper.prototype.ObjectArray = function(arr){
+    return new ObjectArray(arr);
+}
+/**
+ * Replace
+ */
+JSHelper.prototype.Replace = function(text, pattern, value,options){
+	options = options === undefined ? "g" : options;
+	text.replace(new RegExp(pattern, options), value);
+}
+/**
  * Instance and optional Facade
  */
 var JSH = new JSHelper();
