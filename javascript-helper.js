@@ -78,7 +78,6 @@ JSHelper.prototype.Remove = function(elem){
 }
 /**
  * Phone
- * @param {*} value 
  */
 function Phone(value){
 	if(value !== undefined) this.value = this.convertToPhone(value);
@@ -126,7 +125,6 @@ JSHelper.prototype.AddPhones = function(className){
 }
 /**
  * Currency
- * @param {*} value 
  */
 function Currency(value){
     if(value !== undefined)	this.value = covertToCurrency(value);
