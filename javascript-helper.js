@@ -205,5 +205,8 @@ Switch.prototype.DoIf = function(condition){
 JSHelper.prototype.Switch = function(){
     return new Switch();
 }
+/**
+ * Instance and optional Facade
+ */
 var JSH = new JSHelper();
-var $ = JSH.Select.bind(JSH); //optional Facade
+var $ = JSH.Select.bind(JSH);
