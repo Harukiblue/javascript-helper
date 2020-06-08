@@ -5,17 +5,24 @@ function JSHelper(){
  * Select
  */
 JSHelper.prototype.Select = function(s, i){
+    this.params = Array.prototype.slice.call(arguments, 0);
 	if(s === undefined || s === null || typeof(s) !== "string"){
-		s = "";
+		return this;
 	}else{
 		s = s.trim();
-	}	
-	var result = document.querySelectorAll(s);
-	this.selector = s;
-	this.selected = result;
-	this.selectedIndex = i !== undefined ? i: result.length === 0 ? -1 : 0;
-	this.hasSelected = (this.selected.length > 0 && this.selectedIndex > -1);
-	this.selectedElem =  this.hasSelected ? this.selected[this.selectedIndex] : document;
+    }	
+    try {
+        var result = document.querySelectorAll(s);
+        if(result !== undefined && result !== null){
+            this.selector = s;
+            this.selected = result;
+            this.selectedIndex = i !== undefined ? i: result.length === 0 ? -1 : 0;
+            this.hasSelected = (this.selected.length > 0 && this.selectedIndex > -1);
+            this.selectedElem =  this.hasSelected ? this.selected[this.selectedIndex] : document;
+        }
+    } catch (error) {
+        console.log(error);
+    }
 	return this;
 }
 /**
@@ -108,9 +115,11 @@ Phone.prototype.Validate = function(){
     return /^[0-9]?[ |\.]?[\(]?[0-9]{3}[\)]?[ |\-|\.]?[0-9]{3}[-|\.]?[0-9]{4}$/.test(this.value)
 }
 JSHelper.prototype.Phone = function(value){
+    if(value === undefined && this.params[0] !== undefined) value = this.params[0]; 
     return new Phone(value);
 }
 JSHelper.prototype.AddPhones = function(className){
+    if(className === undefined && this.params[0] !== undefined) className = this.params[0]; 
     className = (className === undefined || className === null || className === "") ? "currency" : className;
 	var phones = document.getElementsByClassName(className);
 	for(var i = 0; i < phones.length; i++){
@@ -141,10 +150,12 @@ Currency.prototype.covertToCurrency = function(value){
 Currency.prototype.Validate = function(value){
 	return /(?=.)^\$?(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)?(\.[0-9]{1,2})?$/.test(value);
 }
-JSHelper.prototype.Currency = function(Value){
+JSHelper.prototype.Currency = function(value){
+    if(value === undefined && this.params[0] !== undefined) value = this.params[0]; 
     return new Currency(value);
 }
 JSHelper.prototype.AddCurrencies = function(className){
+    if(className === undefined && this.params[0] !== undefined) className = this.params[0]; 
     className = (className === undefined || className === null || className === "") ? "currency" : className;
 	var currencies = document.getElementsByClassName(className);
 	for(var i = 0; i < currencies.length; i++){
@@ -169,6 +180,9 @@ JSHelper.prototype.AddCurrencies = function(className){
  * TimeStamp
  */
 JSHelper.prototype.TimeStamp =  function(date, fstr, utc) {
+    if(date === undefined && this.params[0] !== undefined) date = this.params[0]; 
+    if(fstr === undefined && this.params[1] !== undefined) fstr = this.params[1]; 
+    if(utc === undefined && this.params[2] !== undefined) utc = this.params[2]; 
     date = (date === "" || date === null || date === undefined) ? new Date () : date;
     fstr = (fstr === "" || fstr === null || fstr === undefined) ? "%Y%m%d_%H%M%S" : fstr;
     utc = (utc === "" || utc === null || utc === undefined) ? true : utc;
@@ -208,6 +222,7 @@ JSHelper.prototype.Switch = function(){
  * Object Array
  */
 function ObjectArray(arr){
+    if(arr === undefined && this.params[0] !== undefined) arr = this.params[0]; 
 	this.array = arr === undefined ? new Array() : arr;
 }
 ObjectArray.prototype.Sort = function(key){
@@ -225,7 +240,11 @@ JSHelper.prototype.ObjectArray = function(arr){
 /**
  * Replace
  */
-JSHelper.prototype.Replace = function(text, pattern, value,options){
+JSHelper.prototype.Replace = function(text, pattern, value, options){
+    if(text === undefined && this.params[0] !== undefined) value = this.params[0]; 
+    if(pattern === undefined && this.params[1] !== undefined) value = this.params[1]; 
+    if(value === undefined && this.params[2] !== undefined) value = this.params[2]; 
+    if(options === undefined && this.params[3] !== undefined) value = this.params[3]; 
     options = options === undefined ? "g" : options;
 	text.replace(new RegExp(pattern, options), value);
 }
@@ -233,12 +252,14 @@ JSHelper.prototype.Replace = function(text, pattern, value,options){
  * Redirect
  */
 JSHelper.prototype.Redirect = function(url){
+    if(url === undefined && this.params[0] !== undefined) url = this.params[0]; 
     window.location = url;
 }
 /**
  * Shuffle
  */
 JSHelper.prototype.Shuffle = function(arr){
+    if(arr === undefined && this.params[0] !== undefined) arr = this.params[0]; 
 	var currentIndex = arr.length, temporaryValue, randomIndex;
 	// While there remain elements to shuffle...
 	while (0 !== currentIndex) {
@@ -256,6 +277,8 @@ JSHelper.prototype.Shuffle = function(arr){
  * RandomInt
  */
 JSHelper.prototype.RandomInt = function(max, min){
+    if(max === undefined && this.params[0] !== undefined) max = this.params[0]; 
+    if(min === undefined && this.params[1] !== undefined) min = this.params[1]; 
     max = max === undefined ? 0 : max;
     min = min === undefined ? 0 : min;
     if(max < min){
@@ -269,13 +292,15 @@ JSHelper.prototype.RandomInt = function(max, min){
  * RandomDecimal
  */
 JSHelper.prototype.RandomDecimal = function(max, min){
+    if(max === undefined && this.params[0] !== undefined) max = this.params[0]; 
+    if(min === undefined && this.params[1] !== undefined) min = this.params[1]; 
+    max = max === undefined ? 0 : max;
+    min = min === undefined ? 0 : min;
     if(max < min){
         var tmax = max;
         max = min;
         min = tmax;
     }
-    max = max === undefined ? 0 : max;
-    min = min === undefined ? 0 : min;
     return Math.random() * (max - min) + min; 
 }
 /**
@@ -283,4 +308,3 @@ JSHelper.prototype.RandomDecimal = function(max, min){
  */
 var JSH = new JSHelper();
 var $ = JSH.Select.bind(JSH);
-var j$ = JSH.bind(JSH);
