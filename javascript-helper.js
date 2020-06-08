@@ -1,5 +1,5 @@
-function JSHelper(){
-    
+function JSHelper(LogOn){
+    this.LogOn = LogOn === undefined ? false : LogOn;
 }
 /**
  * Select
@@ -21,7 +21,7 @@ JSHelper.prototype.Select = function(s, i){
             this.selectedElem =  this.hasSelected ? this.selected[this.selectedIndex] : document;
         }
     } catch (error) {
-        console.log(error);
+        if(this.LogOn) console.log(error);
     }
 	return this;
 }
@@ -87,7 +87,8 @@ JSHelper.prototype.Remove = function(elem){
  * Phone
  */
 function Phone(value){
-	if(value !== undefined) this.value = this.convertToPhone(value);
+    if(value !== undefined) this.value = this.convertToPhone(value);
+    this.isValid = this.Validate(this.value);
 }
 Phone.prototype.convertToPhone = function(value){
     if(value === undefined || value === null || value === ""){return null;}
@@ -118,7 +119,7 @@ JSHelper.prototype.Phone = function(value){
     if(value === undefined && this.params[0] !== undefined) value = this.params[0]; 
     return new Phone(value);
 }
-JSHelper.prototype.AddPhones = function(className){
+JSHelper.prototype.RegisterPhoneFields = function(className){
     if(className === undefined && this.params[0] !== undefined) className = this.params[0]; 
     className = (className === undefined || className === null || className === "") ? "currency" : className;
 	var phones = document.getElementsByClassName(className);
@@ -136,14 +137,15 @@ JSHelper.prototype.AddPhones = function(className){
  * Currency
  */
 function Currency(value){
-    if(value !== undefined)	this.value = covertToCurrency(value);
+    if(value !== undefined)	this.value = this.covertToCurrency(value);
+    this.isValid = this.Validate(this.value);
 }
 Currency.prototype.convertToFloat = function(value){
 	var RTN = parseFloat(value.replace(/[,|$]/g,""));
 	return isNaN(RTN) ? 0.00: RTN;
 }
 Currency.prototype.covertToCurrency = function(value){
-	var RTN = "" + convertToFloat(value);
+	var RTN = "" + this.convertToFloat(value);
 	RTN = RTN.replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
 	return RTN.indexOf(".") == -1 ? RTN + ".00" : RTN;
 }
@@ -154,7 +156,7 @@ JSHelper.prototype.Currency = function(value){
     if(value === undefined && this.params[0] !== undefined) value = this.params[0]; 
     return new Currency(value);
 }
-JSHelper.prototype.AddCurrencies = function(className){
+JSHelper.prototype.RegisterCurrencyFields = function(className){
     if(className === undefined && this.params[0] !== undefined) className = this.params[0]; 
     className = (className === undefined || className === null || className === "") ? "currency" : className;
 	var currencies = document.getElementsByClassName(className);
@@ -253,6 +255,7 @@ JSHelper.prototype.Replace = function(text, pattern, value, options){
  */
 JSHelper.prototype.Redirect = function(url){
     if(url === undefined && this.params[0] !== undefined) url = this.params[0]; 
+    if(url === undefined) return null;
     window.location = url;
 }
 /**
