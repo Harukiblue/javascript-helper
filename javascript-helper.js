@@ -167,7 +167,45 @@ JSHelper.prototype.AddCurrencies = function(className){
 		});
 	}
 }
-
-
+/**
+ * TimeStamp
+ */
+JSHelper.prototype.TimeStamp =  function(date, fstr, utc) {
+    date = (date === "" || date === null || date === undefined) ? new Date () : date;
+    fstr = (fstr === "" || fstr === null || fstr === undefined) ? "%Y%m%d_%H%M%S" : fstr;
+    utc = (utc === "" || utc === null || utc === undefined) ? true : utc;
+    utc = utc ? 'getUTC' : 'get';
+    return fstr.replace (/%[YmdHMS]/g, function (m) {
+      switch (m) {
+        case '%Y': return date[utc + 'FullYear'] (); // no leading zeros required
+        case '%m': m = 1 + date[utc + 'Month'] (); break;
+        case '%d': m = date[utc + 'Date'] (); break;
+        case '%H': m = date[utc + 'Hours'] (); break;
+        case '%M': m = date[utc + 'Minutes'] (); break;
+        case '%S': m = date[utc + 'Seconds'] (); break;
+        default: return m.slice (1); // unknown code, remove %
+      }
+      // add leading zero if required
+      return ('0' + m).slice (-2);
+    });
+}
+/**
+ * Switch
+ */
+function Switch(){
+	this.collection = new Array();
+}
+Switch.prototype.Add = function(condition, callback){
+	this.collection.push({_condition:  condition, _callback: callback});
+}
+Switch.prototype.DoIf = function(condition){
+	for(var i = 0; i < this.collection.length; i++){
+		if(this.collection[i]._condition === condition) return this.collection[i].callback();
+	}
+	return null;
+}
+JSHelper.prototype.Switch = function(){
+    return new Switch();
+}
 var JSH = new JSHelper();
 var $ = JSH.Select.bind(JSH); //optional Facade
