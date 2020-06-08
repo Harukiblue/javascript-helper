@@ -236,6 +236,49 @@ JSHelper.prototype.Redirect = function(url){
     window.location = url;
 }
 /**
+ * Shuffle
+ */
+JSHelper.prototype.Shuffle = function(arr){
+	var currentIndex = arr.length, temporaryValue, randomIndex;
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+		// And swap it with the current element.
+		temporaryValue = arr[currentIndex];
+		arr[currentIndex] = arr[randomIndex];
+		arr[randomIndex] = temporaryValue;
+	}
+	return arr;
+};
+/**
+ * RandomInt
+ */
+JSHelper.prototype.RandomInt = function(max, min){
+    max = max === undefined ? 0 : max;
+    min = min === undefined ? 0 : min;
+    if(max < min){
+        var tmax = max;
+        max = min;
+        min = tmax;
+    }
+    return Math.floor(Math.random() * ((max - min) + 1)) + min; 
+}
+/**
+ * RandomDecimal
+ */
+JSHelper.prototype.RandomDecimal = function(max, min){
+    if(max < min){
+        var tmax = max;
+        max = min;
+        min = tmax;
+    }
+    max = max === undefined ? 0 : max;
+    min = min === undefined ? 0 : min;
+    return Math.random() * (max - min) + min; 
+}
+/**
  * Instance and optional Facade
  */
 var JSH = new JSHelper();
