@@ -6,23 +6,29 @@ function JSHelper(LogOn){
  */
 JSHelper.prototype.Select = function(s, i){
     this.params = Array.prototype.slice.call(arguments, 0);
-	if(s === undefined || s === null || typeof(s) !== "string"){
+	if(s === undefined || s === null || (typeof(s) !== "string" || typeof(2) !== "object")){
 		return this;
-	}else{
+	}else if(typeof(s) === "object"){
+        this.selector = s;
+        this.selected = s;
+        this.selectedIndex = 0;
+        this.hasSelected = true;
+        this.selectedElem =  s;
+	}else if(typeof(s) === "string"){
 		s = s.trim();
-    }	
-    try {
-        var result = document.querySelectorAll(s);
-        if(result !== undefined && result !== null){
-            this.selector = s;
-            this.selected = result;
-            this.selectedIndex = i !== undefined ? i: result.length === 0 ? -1 : 0;
-            this.hasSelected = (this.selected.length > 0 && this.selectedIndex > -1);
-            this.selectedElem =  this.hasSelected ? this.selected[this.selectedIndex] : document;
+        try {
+            var result = document.querySelectorAll(s);
+            if(result !== undefined && result !== null){
+                this.selector = s;
+                this.selected = [].slice.call(result);
+                this.selectedIndex = i !== undefined ? i: result.length === 0 ? -1 : 0;
+                this.hasSelected = (this.selected.length > 0 && this.selectedIndex > -1);
+                this.selectedElem =  this.hasSelected ? this.selected[this.selectedIndex] : document;
+            }
+        } catch (error) {
+            if(this.LogOn) console.log(error);
         }
-    } catch (error) {
-        if(this.LogOn) console.log(error);
-    }
+    }	
 	return this;
 }
 /**
@@ -119,19 +125,16 @@ JSHelper.prototype.Phone = function(value){
     if(value === undefined && this.params[0] !== undefined) value = this.params[0]; 
     return new Phone(value);
 }
-JSHelper.prototype.RegisterPhoneFields = function(className){
-    if(className === undefined && this.params[0] !== undefined) className = this.params[0]; 
-    className = (className === undefined || className === null || className === "") ? "currency" : className;
-	var phones = document.getElementsByClassName(className);
-	for(var i = 0; i < phones.length; i++){
-		phone = phones[i];
-		phone.addEventListener("change", function(e){
-			var target = e.srcElement || e.target;
-			var value = target.value;
-			var result = new Phone().convertToPhone(value);
-			target.value = result === 0 ? "" : result;
-		});
-    }
+JSHelper.prototype.RegisterPhoneFields = function(){
+    var ctx = this;
+    this.selected.forEach(function(elem){
+        ctx.Select(elem).AddEvent("change", function(e){
+            var target = e.srcElement || e.target;
+            var value = target.value;
+            var result = new Phone().convertToPhone(value);
+            target.value = result === 0 ? "" : result;
+        });
+    });
 }
 /**
  * Currency
@@ -156,27 +159,22 @@ JSHelper.prototype.Currency = function(value){
     if(value === undefined && this.params[0] !== undefined) value = this.params[0]; 
     return new Currency(value);
 }
-JSHelper.prototype.RegisterCurrencyFields = function(className){
-    if(className === undefined && this.params[0] !== undefined) className = this.params[0]; 
-    className = (className === undefined || className === null || className === "") ? "currency" : className;
-	var currencies = document.getElementsByClassName(className);
-	for(var i = 0; i < currencies.length; i++){
-		//default Value
-		currencies[i].value = (currencies[i].value === "" || currencies[i].value === null || currencies[i].value === undefined) ? "0.00" : currencies[i].value;
-		//On Focus
-		currencies[i].addEventListener("focus", function(e){
+JSHelper.prototype.RegisterCurrencyFields = function(){   
+    var ctx = this;
+    this.selected.forEach(function(elem){
+		elem.value = (elem.value === "" || elem.value === null || elem.value === undefined) ? "0.00" : elem.value;
+        ctx.Select(elem).AddEvent("focus", function(e){
 			var target = e.srcElement || e.target;
 			var val = target.value;
 			var RTN = new Currency().convertToFloat(val);
 			target.value = RTN === 0 ? "" : RTN;
-		});
-		//On Blur
-		currencies[i].addEventListener("blur", function(e){
+        });
+        ctx.Select(elem).AddEvent("blur", function(e){
 			var target = e.srcElement || e.target;
 			var val = target.value;
 			target.value = new Currency().covertToCurrency(val);
-		});
-	}
+        });
+    });
 }
 /**
  * TimeStamp
@@ -319,6 +317,18 @@ JSHelper.prototype.QueryString = function(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+/**
+ * AddEvent
+ */
+JSHelper.prototype.AddEvent = function(evnt, callback){
+    this.selected.forEach(function(elem){
+        if(elem === null || elem === undefined){return;}
+        if (elem.attachEvent){
+            return elem.attachEvent('on'+evnt, callback);
+        }
+        return elem.addEventListener(evnt, callback, false);
+    });
 }
 /**
  * Instance and optional Facade
