@@ -363,10 +363,10 @@ Cookie.prototype.Read = function(name){
 	return null;
 }
 Cookie.prototype.Update = function(name,value,days){
-	cookies.create(name,value,days);
+	this.Create(name,value,days);
 }
 Cookie.prototype.Delete = function(name){
-	cookies.create(name,"",-1);
+	this.Create(name,"",-1);
 }
 JSHelper.prototype.Cookie = function(){
     return new Cookie();
