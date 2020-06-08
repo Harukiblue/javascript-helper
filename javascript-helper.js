@@ -426,7 +426,7 @@ JSHelper.prototype.DetectBrowser = function(){
     return result;
   }
 /**
- * Instance and optional Facade
+ * Instance and optional Facade and shorthand
  */
 var JSH = new JSHelper();
 var $ = JSH.Select.bind(JSH);
