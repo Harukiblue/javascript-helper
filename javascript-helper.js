@@ -283,3 +283,4 @@ JSHelper.prototype.RandomDecimal = function(max, min){
  */
 var JSH = new JSHelper();
 var $ = JSH.Select.bind(JSH);
+var j$ = JSH.bind(JSH);
