@@ -60,6 +60,7 @@ This library contains several commonly used objects
 	<script type="text/javascript" src="js/example.js"></script>
 </body>
 </html>
+
 ```javascript
 /**
  * Select Example
