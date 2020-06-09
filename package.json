@@ -1,0 +1,16 @@
+{
+  "name": "javascript-helper",
+  "version": "0.1.0",
+  "description": "A collection of helpful objects and methods",
+  "main": "JS Helper",
+  "scripts": {
+    "test": "echo \"No test specified\"",
+    "start": "npx http-server"
+  },
+  "contributors": [
+    "Brennien Coker <harukiblue@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+  }
+}
