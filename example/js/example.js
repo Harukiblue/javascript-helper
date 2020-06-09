@@ -1,7 +1,7 @@
 /**
  * Select Example
  */
-console.log("***Select")
+console.log("***Select***")
 console.log(
     "traditional Vanilla JS: Tag Selector",
     document.getElementsByTagName("P")[0],
@@ -52,7 +52,7 @@ console.log(
 /**
  * AddClass & RemoveClass
  */
-console.log("***AddClass & RemoveClass")
+console.log("\n***AddClass & RemoveClass***")
 var p1 = document.getElementById("p1");
 p1.setAttribute("class", p1.getAttribute("class") + " new-class");
 console.log(
@@ -77,14 +77,14 @@ console.log(
 /**
  * Add & Remove
  */
-console.log("***Add & Remove: element to/from DOM");
+console.log("\n***Add & Remove: element to/from DOM***");
 var newElem = document.createElement("P");
 newElem.setAttribute("id", "new-elem-1");
 newElem.setAttribute("class","new-elem-1");
 newElem.setAttribute("type","new-elem-1");
 newElem.setAttribute("value","new element 1");
 newElem.innerHTML = "new element 1";
-var par = document.getElementsByTagName("BODY")[0];
+var par = document.getElementById("section-2");
 par.appendChild(newElem);
 console.log(
     "traditional Vanilla JS: Add element to DOM",
@@ -92,7 +92,7 @@ console.log(
 );
 console.log(
     "JSHelper: Add element to the DOM",
-    $("body").Add({
+    $("#section-2").Add({
         tag: "P",
         id: "new-elem-2",
         clss: "new-elem-2",
@@ -101,27 +101,65 @@ console.log(
         innerHTML: "new element 2",
     })
 );
-var p9 = document.getElementById("p9");
-p9.parentNode.removeChild(p9);
+var r1 = document.getElementById("remove-1");
+r1.parentNode.removeChild(r1);
 console.log(
     "traditional Vanilla JS: Remove element from DOM",
-     p9.parentNode === null
+     r1.parentNode === null
 );
 
 console.log(
     "JSHelper: Remove element from the DOM",
-    $("#p10").Remove()
+    $("#remove-2").Remove()
 );
 
 /**
  * Phone
  */
-console.log("***Phone");
+console.log("\n***Phone***");
 console.log(
     "JSHelper: 3213213211",
     $("3213213211").Phone(),
-    "JSHelper: 321-321-3211",
+    "\nJSHelper: 321-321-3211",
     $("321-321-3211").Phone(),
-    "JSHelper: BAD INPUT",
-    $("BAD INPUT").Phone()
+    "\nJSHelper: BAD INPUT",
+    $("BAD INPUT").Phone(),
+    "\n",$(".phone").RegisterPhoneFields().selected
+);
+
+/**
+ * Currency
+ */
+console.log("\n***Currency***");
+console.log(
+    "JSHelper: 1234",
+    $("1234").Currency(),
+    "\nJSHelper: 1.23",
+    $("1.23").Currency(),
+    "\nJSHelper: BAD INPUT",
+    $("BAD INPUT").Currency(),
+    "\n",$(".currency").RegisterCurrencyFields().selected
+);
+
+/**
+ * Timestamp
+ */
+console.log("\n***Timestamp***");
+console.log(
+    "JSHelper null:",
+    $().Timestamp(),
+    "\nJSHelper Year:",
+    $("%Y").Timestamp(),
+    "\nJSHelper Month #:",
+    $("%m").Timestamp(),
+    "\nJSHelper Month name:",
+    $("%N").Timestamp(),
+    "\nJSHelper Day:",
+    $("%d").Timestamp(),
+    "\nJSHelper Hour:",
+    $("%H").Timestamp(),
+    "\nJSHelper Minute:",
+    $("%M").Timestamp(),
+    "\nJSHelper Seconds:",
+    $("%S").Timestamp(),
 );

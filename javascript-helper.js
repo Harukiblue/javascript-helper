@@ -32,6 +32,13 @@ JSHelper.prototype.Select = function(s, i){
 	return this;
 }
 /**
+ * Clear
+ */
+JSHelper.prototype.Clear = function(){
+    this.params = new Array();
+    return this;
+}
+/**
  * AddClass & RemoveClass
  */
 JSHelper.prototype.RemoveClass = function(clss){
@@ -140,6 +147,7 @@ JSHelper.prototype.RegisterPhoneFields = function(){
             target.value = result === 0 ? "" : result;
         });
     });
+    return this;
 }
 /**
  * Currency
@@ -147,15 +155,17 @@ JSHelper.prototype.RegisterPhoneFields = function(){
 function Currency(value){
     if(value !== undefined)	this.value = this.covertToCurrency(value);
     this.isValid = this.Validate(this.value);
+    this.value = this.isValid ? this.value : value;
 }
 Currency.prototype.convertToFloat = function(value){
-	var RTN = parseFloat(value.replace(/[,|$]/g,""));
-	return isNaN(RTN) ? 0.00: RTN;
+	var result = parseFloat(value.replace(/[,|$]/g,""));
+	return isNaN(result) ? "": result;
 }
 Currency.prototype.covertToCurrency = function(value){
-	var RTN = "" + this.convertToFloat(value);
-	RTN = RTN.replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
-	return RTN.indexOf(".") == -1 ? RTN + ".00" : RTN;
+    var result = "" + this.convertToFloat(value);
+    if(result === "" ) return value;
+	result = result.replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
+	return result.indexOf(".") == -1 ? result + ".00" : result;
 }
 Currency.prototype.Validate = function(value){
 	return /(?=.)^\$?(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)?(\.[0-9]{1,2})?$/.test(value);
@@ -180,29 +190,32 @@ JSHelper.prototype.RegisterCurrencyFields = function(){
 			target.value = new Currency().covertToCurrency(val);
         });
     });
+    return this;
 }
 /**
  * TimeStamp
  */
-JSHelper.prototype.TimeStamp =  function(date, fstr, utc) {
-    if(date === undefined && this.params[0] !== undefined) date = this.params[0]; 
-    if(fstr === undefined && this.params[1] !== undefined) fstr = this.params[1]; 
+JSHelper.prototype.Timestamp =  function(fstr, date, utc) {
+    if(fstr === undefined && this.params[0] !== undefined) fstr = this.params[0]; 
+    if(date === undefined && this.params[1] !== undefined) date = this.params[1]; 
     if(utc === undefined && this.params[2] !== undefined) utc = this.params[2]; 
     date = (date === "" || date === null || date === undefined) ? new Date () : date;
     fstr = (fstr === "" || fstr === null || fstr === undefined) ? "%Y%m%d_%H%M%S" : fstr;
     utc = (utc === "" || utc === null || utc === undefined) ? true : utc;
     utc = utc ? 'getUTC' : 'get';
-    return fstr.replace (/%[YmdHMS]/g, function (m) {
-      switch (m) {
-        case '%Y': return date[utc + 'FullYear'] ();
-        case '%m': m = 1 + date[utc + 'Month'] (); break;
-        case '%d': m = date[utc + 'Date'] (); break;
-        case '%H': m = date[utc + 'Hours'] (); break;
-        case '%M': m = date[utc + 'Minutes'] (); break;
-        case '%S': m = date[utc + 'Seconds'] (); break;
-        default: return m.slice (1); 
-      }
-      return ('0' + m).slice (-2);
+    const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+    return fstr.replace (/%[YmNdHMS]/g, function (m) {
+        if(m === '%N') return monthNames[1 + date[utc + 'Month'] ()];
+        switch (m) {
+            case '%Y': return date[utc + 'FullYear'] ();
+            case '%m': m = 1 + date[utc + 'Month'] (); break;
+            case '%d': m = date[utc + 'Date'] (); break;
+            case '%H': m = date[utc + 'Hours'] (); break;
+            case '%M': m = date[utc + 'Minutes'] (); break;
+            case '%S': m = date[utc + 'Seconds'] (); break;
+            default: return m.slice (1); 
+        }
+        return ('0' + m).slice (-2);
     });
 }
 /**
@@ -435,4 +448,3 @@ JSHelper.prototype.DetectBrowser = function(){
  */
 var JSH = new JSHelper();
 var $ = JSH.Select.bind(JSH);
-var j$ = JSH;
