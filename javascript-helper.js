@@ -13,7 +13,7 @@ JSHelper.prototype.Select = function(s, i){
         this.selected = s;
         this.selectedIndex = 0;
         this.hasSelected = true;
-        this.selectedElem =  s;
+        this.elem =  s;
 	}else if(typeof(s) === "string"){
 		s = s.trim();
         try {
@@ -23,7 +23,7 @@ JSHelper.prototype.Select = function(s, i){
                 this.selected = [].slice.call(result);
                 this.selectedIndex = i !== undefined ? i: result.length === 0 ? -1 : 0;
                 this.hasSelected = (this.selected.length > 0 && this.selectedIndex > -1);
-                this.selectedElem =  this.hasSelected ? this.selected[this.selectedIndex] : document;
+                this.elem =  this.hasSelected ? this.selected[this.selectedIndex] : document;
             }
         } catch (error) {
             if(this.LogOn) console.log(error);
@@ -70,7 +70,7 @@ JSHelper.prototype.addClass = function(clss){
 JSHelper.prototype.Add = function(obj){
 	if(obj === undefined){return;}
 	if(obj.tag === undefined){return;}
-	if(obj.par === undefined && this.hasSelected ){obj.par = this.selectedElem;}
+	if(obj.par === undefined && this.hasSelected ){obj.par = this.elem;}
 	if(obj.par === undefined && !this.hasSelected ){return;}
 	
 	var elem = document.createElement(obj.tag);
@@ -85,7 +85,7 @@ JSHelper.prototype.Add = function(obj){
 }
 JSHelper.prototype.Remove = function(elem){
 	if(typeof(elem) === "string"){this.Select(elem); elem = undefined;}
-	if(elem === undefined && this.hasSelected ){elem = this.selectedElem;}
+	if(elem === undefined && this.hasSelected ){elem = this.elem;}
 	if(elem === undefined && !this.hasSelected ){return;}
 	elem.parentNode.removeChild(elem);
 }
@@ -388,7 +388,7 @@ JSHelper.prototype.Copy = function(){
 		}
 	};
 	
-	selectText(this.selectedElem);
+	selectText(this.elem);
 	try {
 		var successful = document.execCommand('copy');
 	} catch (err) {
