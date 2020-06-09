@@ -376,3 +376,12 @@ $("#copy-btn").AddEvent("click",function(e){
 console.log(
     "JSHelper click the Copy button to copy the text in the field:"
 );
+
+/**
+ * DetectBrowser
+ */
+console.log("\n***DetectBrowser***");
+console.log(
+    "JSHelper list the type of browser:",
+    $().DetectBrowser()
+);

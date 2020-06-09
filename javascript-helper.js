@@ -448,8 +448,8 @@ JSHelper.prototype.Copy = function(){
  * DetectBrowser
  */
 JSHelper.prototype.DetectBrowser = function(){
-    result = {isIE: false};
     var ua = window.navigator.userAgent;
+    result = {isIE: false, userAgent: ua};
     var msie = ua.indexOf('MSIE ');
     
     if (msie > 0) {
