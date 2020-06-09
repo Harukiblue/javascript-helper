@@ -308,3 +308,14 @@ console.log(
     "JSHelper get the qs1 query string value:",
     $("qs1").QueryString()
 )
+
+/**
+ * AddEvent
+ */
+console.log("\n***AddEvent***");
+$("#event-btn").AddEvent("click", function(e){
+    alert("you have clicked on the Event Listener Demo button");
+});
+console.log(
+    "JSHelper click on 'Event Listener Demo' to view the event listener demo:",
+);
