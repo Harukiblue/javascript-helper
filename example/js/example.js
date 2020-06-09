@@ -364,3 +364,15 @@ console.log(
     "JSHelper delete and read cookie test:",
     $().Cookie().Read("test")
 );
+
+/**
+ * Copy
+ */
+console.log("\n***Copy***");
+$("#copy-btn").AddEvent("click",function(e){
+    $("#copy-text").Copy();
+    alert("The text has been added to your clipboard.")
+});
+console.log(
+    "JSHelper click the Copy button to copy the text in the field:"
+);
