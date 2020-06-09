@@ -163,3 +163,79 @@ console.log(
     "\nJSHelper Seconds:",
     $("%S").Timestamp(),
 );
+
+/**
+ * Switch
+ */
+console.log("\n***Switch***");
+var switchOutput1 = "";
+switch(Math.floor(Math.random()*4)+1){
+    case 1: 
+        switchOutput1 = "one"; 
+    break;
+    case 2: 
+        switchOutput1 = "two"; 
+    break;
+    case 3: 
+        switchOutput1 = "three"; 
+    break;
+    case 4: 
+        switchOutput1 = "four"; 
+    break;
+}
+console.log(
+    "traditional Vanilla JS Random switch:",
+    switchOutput1
+);
+switchOutput2 = "";
+var scenario = $().Switch();
+scenario.Add(1, function(){switchOutput2 = "one";});
+scenario.Add(2, function(){switchOutput2 = "two";});
+scenario.Add(3, function(){switchOutput2 = "three";});
+scenario.Add(4, function(){switchOutput2 = "four";});
+scenario.DoIf(1);
+console.log(
+    "JSHelper Do if condition is 1:",
+    switchOutput2,
+);
+scenario.DoRandom();
+console.log(
+    "JSHelper Do random case:",
+    switchOutput2,
+);
+scenario.DoAll();
+console.log(
+    "JSHelper Do all cases:",
+    switchOutput2,
+);
+scenario.RemoveIf(4);
+console.log(
+    "JSHelper RemoveIf condition is 4:",
+    scenario.collection,
+);
+scenario.RemoveAt(1);
+console.log(
+    "JSHelper RemoveAt index 1:",
+    scenario.collection,
+);
+
+/**
+ * ObjectArray
+ */
+console.log("\n***ObjectArray***");
+var beforeObjArr1 = [{index:0,key:"d"},{index:1,key:"c"},{index:2,key:"a"},{index:3,key:"b"}];
+var afterObjArr1 = [{index:0,key:"d"},{index:1,key:"c"},{index:2,key:"a"},{index:3,key:"b"}];
+afterObjArr1.sort(function(a,b){
+    if(a.key < b.key)return -1;
+    if(a.key > b.key)return 1;
+    return 0;
+});
+console.log(
+    "traditional Vanilla JS sort object array:",
+    "\nbefore", beforeObjArr1, "after", afterObjArr1
+);
+var baseObjArr = [{index:0,key:"d"},{index:1,key:"c"},{index:2,key:"a"},{index:3,key:"b"}];
+console.log(
+    "traditional Vanilla JS sort object array:",
+    "\nbefore", baseObjArr, "after", $().ObjectArray(baseObjArr).Sort("key")
+);

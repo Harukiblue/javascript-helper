@@ -227,11 +227,35 @@ function Switch(){
 Switch.prototype.Add = function(condition, callback){
 	this.collection.push({condition:  condition, callback: callback});
 }
+Switch.prototype.RemoveIf = function(condition){
+	for(var i = 0; i < this.collection.length; i++){
+        if(this.collection[i].condition === condition){
+            this.collection.splice(i,1);
+            return this;
+        }
+    }
+    return this;
+}
+Switch.prototype.RemoveAt = function(index){
+    this.collection.splice(index,1);
+    return this;
+}
 Switch.prototype.DoIf = function(condition){
 	for(var i = 0; i < this.collection.length; i++){
 		if(this.collection[i].condition === condition) return this.collection[i].callback();
 	}
 	return null;
+}
+Switch.prototype.DoRandom = function(){
+    var index = Math.floor(Math.random()*this.collection.length);
+    return this.collection[index].callback();
+}
+Switch.prototype.DoAll = function(){
+    var results = new Array();
+	for(var i = 0; i < this.collection.length; i++){
+		results.push(this.collection[i].callback());
+	}
+	return results;
 }
 JSHelper.prototype.Switch = function(){
     return new Switch();
@@ -241,10 +265,17 @@ JSHelper.prototype.Switch = function(){
  */
 function ObjectArray(arr){
     if(arr === undefined && this.params[0] !== undefined) arr = this.params[0]; 
-	this.array = arr === undefined ? new Array() : arr;
+	this.array = arr === undefined ? new Array() : this.Clone(arr);
+}
+ObjectArray.prototype.Clone = function(arr){
+    var result = new Array();
+    for(var i = 0; i < arr.length; i++){
+        result.push(arr[i]);
+    }
+    return result;
 }
 ObjectArray.prototype.Sort = function(key){
-	key = key === undefined ? Object.keys(arr)[0] : key;
+	key = key === undefined ? Object.keys(this.array)[0] : key;
 	this.array = this.array.sort(function(a, b){
 		if(a[key] < b[key]) return -1;
 		if(a[key] > b[key]) return 1;
