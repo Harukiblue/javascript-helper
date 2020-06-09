@@ -56,41 +56,35 @@ HTML
 JavaScript
 ```javascript
 // Traditional Vanilla JS: Add class
-var p1 = document.getElementById("p1");
-p1.setAttribute("class", p1.getAttribute("class") + " new-class");
+    var p1 = document.getElementById("p1");
+    p1.setAttribute("class", p1.getAttribute("class") + " new-class");
 // JSHelper: Add class
     $("#p2").AddClass("new-class");
-);
 
 // Traditional Vanilla JS: Remove class
-var p3 = document.getElementById("p3");
-p3.setAttribute("class", p3.getAttribute("class").replace("class",""));
+    var p3 = document.getElementById("p3");
+    p3.setAttribute("class", p3.getAttribute("class").replace("class",""));
 // JSHelper: Remove class
     $("#p4").RemoveClass("class");
 ```
-* Add & Remove
+* Add & Remove\
 HTML
 ```html
-
+<section id="create-elem-container">
 ```
 JavaScript
 ```javascript
-console.log("\n***Add & Remove: element to/from DOM***");
-var newElem = document.createElement("P");
-newElem.setAttribute("id", "new-elem-1");
-newElem.setAttribute("class","new-elem-1");
-newElem.setAttribute("type","new-elem-1");
-newElem.setAttribute("value","new element 1");
-newElem.innerHTML = "new element 1";
-var par = document.getElementById("section-2");
-par.appendChild(newElem);
-console.log(
-    "traditional Vanilla JS: Add element to DOM",
-    newElem
-);
-console.log(
-    "JSHelper: Add element to the DOM",
-    $("#section-2").Add({
+// Traditional Vanilla JS: create a paragraph tag and append it to the body
+    var newElem = document.createElement("P");
+    newElem.setAttribute("id", "new-elem-1");
+    newElem.setAttribute("class","new-elem-1");
+    newElem.setAttribute("type","new-elem-1");
+    newElem.setAttribute("value","new element 1");
+    newElem.innerHTML = "new element 1";
+    var par = document.getElementById("create-elem-container");
+    par.appendChild(newElem);
+// JSHelper: Add element to the DOM",
+    $("#create-elem-container").Add({
         tag: "P",
         id: "new-elem-2",
         clss: "new-elem-2",
@@ -98,7 +92,7 @@ console.log(
         value: "new element 2",
         innerHTML: "new element 2",
     })
-);
+    
 var r1 = document.getElementById("remove-1");
 r1.parentNode.removeChild(r1);
 console.log(
