@@ -328,7 +328,7 @@ JSHelper.prototype.Shuffle = function(arr){
 JSHelper.prototype.RandomInt = function(max, min){
     if(max === undefined && this.params[0] !== undefined) max = this.params[0]; 
     if(min === undefined && this.params[1] !== undefined) min = this.params[1]; 
-    max = max === undefined ? 0 : max;
+    max = max === undefined ? 1 : max;
     min = min === undefined ? 0 : min;
     if(max < min){
         var tmax = max;
@@ -343,7 +343,7 @@ JSHelper.prototype.RandomInt = function(max, min){
 JSHelper.prototype.RandomDecimal = function(max, min){
     if(max === undefined && this.params[0] !== undefined) max = this.params[0]; 
     if(min === undefined && this.params[1] !== undefined) min = this.params[1]; 
-    max = max === undefined ? 0 : max;
+    max = max === undefined ? 1 : max;
     min = min === undefined ? 0 : min;
     if(max < min){
         var tmax = max;

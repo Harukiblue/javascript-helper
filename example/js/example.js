@@ -256,9 +256,44 @@ console.log(
 /**
  * Redirect
  */
-console.log("\n***Redirect***");
+console.log("\n***Redirect***\nClick on redirect button to view Redirect demo");
 var elem = $("#redirect-url").elem;
 elem.value = elem.value + $().Timestamp()
 $("#redirect-btn").AddEvent("click",function(e){
     $(elem.value).Redirect();
-})
+});
+
+/**
+ * Shuffle
+ */
+console.log("\n***Shuffle***");
+console.log(
+    "JSHelper shuffle array [1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f']:",
+    $([1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"]).Shuffle()
+);
+
+/**
+ * RandomInt
+ */
+console.log("\n***RandomInt***");
+console.log(
+    "JSHelper random integer from 0 to 1:",
+    $().RandomInt(),
+    "\nJSHelper random integer from 0 to 100:",
+    $(100).RandomInt(),
+    "\nJSHelper random integer from 1 to 10:",
+    $(1,10).RandomInt()
+);
+
+/**
+ * RandomDecimal
+ */
+console.log("\n***RandomDecimal***");
+console.log(
+    "JSHelper random decimal from 0 to 1:",
+    $().RandomDecimal(),
+    "\nJSHelper random decimal from 0 to 100:",
+    $(100).RandomDecimal(),
+    "\nJSHelper random decimal from 1 to 10:",
+    $(1,10).RandomDecimal()
+);
