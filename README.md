@@ -55,27 +55,18 @@ HTML
 ```
 JavaScript
 ```javascript
-console.log("\n***AddClass & RemoveClass***")
+// Traditional Vanilla JS: Add class
 var p1 = document.getElementById("p1");
 p1.setAttribute("class", p1.getAttribute("class") + " new-class");
-console.log(
-    "traditional Vanilla JS: Add class",
-    p1
+// JSHelper: Add class
+    $("#p2").AddClass("new-class");
 );
-console.log(
-    "JSHelper: Add class",
-    $("#p2").AddClass("new-class").elem
-);
+
+// Traditional Vanilla JS: Remove class
 var p3 = document.getElementById("p3");
 p3.setAttribute("class", p3.getAttribute("class").replace("class",""));
-console.log(
-    "traditional Vanilla JS: Remove class",
-    p3
-);
-console.log(
-    "JSHelper: Remove class",
-    $("#p4").RemoveClass("class").elem
-);
+// JSHelper: Remove class
+    $("#p4").RemoveClass("class");
 ```
 * Add & Remove
 HTML
