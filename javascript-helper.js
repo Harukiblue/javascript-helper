@@ -34,7 +34,7 @@ JSHelper.prototype.Select = function(s, i){
 /**
  * AddClass & RemoveClass
  */
-JSHelper.prototype.removeClass = function(clss){
+JSHelper.prototype.RemoveClass = function(clss){
 	this.selected.forEach(function(elem){
 		var RTN = "";
 		var origClass = elem.getAttribute("class");
@@ -48,9 +48,10 @@ JSHelper.prototype.removeClass = function(clss){
 			elem.removeAttribute("class");
 		}
 		return RTN;
-	});
+    });
+    return this;
 }
-JSHelper.prototype.addClass = function(clss){
+JSHelper.prototype.AddClass = function(clss){
 	this.selected.forEach(function(elem){
 		var origClass = elem.getAttribute("class");
 		if(origClass === null || origClass === undefined){origClass = "";}
@@ -63,9 +64,10 @@ JSHelper.prototype.addClass = function(clss){
 		return elem.getAttribute("class");
 
 	});
+    return this;
 }
 /**
- * Add & remove element from DOM
+ * Add & Remove: element to/from DOM
  */
 JSHelper.prototype.Add = function(obj){
 	if(obj === undefined){return;}
@@ -81,13 +83,15 @@ JSHelper.prototype.Add = function(obj){
 	if(obj.value){elem.setAttribute("value", obj.value);}
 	if(obj.innerHTML){elem.innerHTML = obj.innerHTML;}
 	
-	par.appendChild(elem);
+    par.appendChild(elem);
+    return elem;
 }
 JSHelper.prototype.Remove = function(elem){
 	if(typeof(elem) === "string"){this.Select(elem); elem = undefined;}
 	if(elem === undefined && this.hasSelected ){elem = this.elem;}
 	if(elem === undefined && !this.hasSelected ){return;}
-	elem.parentNode.removeChild(elem);
+    elem.parentNode.removeChild(elem);
+    return elem.parentNode === null;
 }
 /**
  * Phone
