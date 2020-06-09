@@ -45,7 +45,7 @@ JavaScript
 // JSHelper: Selecting by object
     $(document.getElementById("id")).elem;
 ```
-* AddClass & RemoveClass
+* AddClass & RemoveClass\
 HTML
 ```html
 <p id="p1" class="class" name="paragraph">Bacon ipsum dolor amet pig landjaeger sausage, bacon meatloaf beef filet mignon brisket buffalo kielbasa tail. Bacon buffalo fatback ham hock capicola rump tail. Chicken sirloin frankfurter, jerky shankle meatball chuck brisket corned beef doner alcatra. Turducken corned beef rump sirloin boudin chuck meatball. Shank ground round short loin ball tip.</p>
