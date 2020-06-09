@@ -1,9 +1,9 @@
 # javascript-helper
 This library contains several commonly used objects<br/>
-*Select\
+* Select\
 HTML
 ```html
-<p id="p1" class="class" name="paragraph">Bacon ipsum dolor amet pig landjaeger sausage, bacon meatloaf beef filet mignon brisket buffalo kielbasa tail. Bacon buffalo fatback ham hock capicola rump tail. Chicken sirloin frankfurter, jerky shankle meatball chuck brisket corned beef doner alcatra. Turducken corned beef rump sirloin boudin chuck meatball. Shank ground round short loin ball tip.</p>
+        <p id="p1" class="class" name="paragraph">Bacon ipsum dolor amet pig landjaeger sausage, bacon meatloaf beef filet mignon brisket buffalo kielbasa tail. Bacon buffalo fatback ham hock capicola rump tail. Chicken sirloin frankfurter, jerky shankle meatball chuck brisket corned beef doner alcatra. Turducken corned beef rump sirloin boudin chuck meatball. Shank ground round short loin ball tip.</p>
         <p id="p2" class="class" name="paragraph">Shankle leberkas tenderloin fatback chuck bresaola pig shoulder ground round ham drumstick spare ribs. Shankle chislic flank fatback, tongue meatloaf ground round sirloin. Pancetta jerky brisket, tri-tip beef ribs pork belly t-bone porchetta picanha. Rump tail brisket shoulder salami, burgdoggen tongue.</p>
         <p id="p3" class="class" name="paragraph">Bacon short loin tenderloin kevin bresaola boudin porchetta prosciutto. Short ribs drumstick shankle jerky pancetta ground round chislic chicken picanha cupim. Flank jowl ham spare ribs hamburger, beef ribs pork chop turkey. Pork chop chuck hamburger pork ribeye, meatloaf frankfurter ham hock. Venison boudin beef ribs, turkey cow ham hock tail. Shank turducken filet mignon, capicola sausage doner beef ribs swine.</p>
         <p id="p4" class="class" name="paragraph">Strip steak kielbasa porchetta tri-tip, tail ribeye pork chop. Sausage cow boudin venison, capicola alcatra jerky pastrami chicken cupim. Pancetta ground round kielbasa salami, leberkas porchetta jowl ham meatloaf pork t-bone picanha. Spare ribs jowl ham hock bacon sirloin shank andouille burgdoggen biltong pig pancetta tenderloin prosciutto flank. Boudin chislic pork chop, pancetta turkey fatback chicken turducken swine. Drumstick beef ribs shank salami corned beef hamburger pork belly cow tail. Shankle hamburger bacon pork loin brisket.</p>
