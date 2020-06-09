@@ -1,7 +1,7 @@
 # javascript-helper
 This library contains several commonly used objects
-#Select
-\HTML
+*Select
+#HTML
 ```html
 <p id="p1" class="class" name="paragraph">Bacon ipsum dolor amet pig landjaeger sausage, bacon meatloaf beef filet mignon brisket buffalo kielbasa tail. Bacon buffalo fatback ham hock capicola rump tail. Chicken sirloin frankfurter, jerky shankle meatball chuck brisket corned beef doner alcatra. Turducken corned beef rump sirloin boudin chuck meatball. Shank ground round short loin ball tip.</p>
         <p id="p2" class="class" name="paragraph">Shankle leberkas tenderloin fatback chuck bresaola pig shoulder ground round ham drumstick spare ribs. Shankle chislic flank fatback, tongue meatloaf ground round sirloin. Pancetta jerky brisket, tri-tip beef ribs pork belly t-bone porchetta picanha. Rump tail brisket shoulder salami, burgdoggen tongue.</p>
@@ -14,8 +14,7 @@ This library contains several commonly used objects
         <p id="p9" class="class" name="paragraph">Landjaeger beef ribs chicken alcatra t-bone salami. Fatback bacon tail kielbasa. Rump pork chop ham hock, turducken swine beef leberkas. Pancetta strip steak jerky picanha, bresaola short ribs sirloin beef ribs cupim.</p>
         <p id="p10" class="class" name="paragraph">Pork belly sirloin capicola, ground round ribeye swine kielbasa beef turducken chuck jerky flank ham hock rump leberkas. Pastrami beef sausage cow, jerky landjaeger shoulder tail porchetta biltong. Porchetta boudin short ribs pork chop. Chislic shankle sirloin venison. Pig pork picanha, t-bone salami meatloaf pork chop. Leberkas picanha beef ribs chuck short loin ham brisket beef filet mignon salami cupim ribeye sausage kevin alcatra.</p>
 ```
-
-\JavaScript
+#JavaScript
 ```javascript
 /**
  * Select Examples
