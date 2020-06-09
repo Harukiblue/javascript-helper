@@ -1,67 +1,7 @@
 # javascript-helper
 This library contains several commonly used objects
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JS Helper Example</title>
-    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <style>
-        input {width: 800px;}
-    </style>
-</head>
-<body>
-	<header>
-        <h1>JavaScript Helper Demos</h1>
-        <p>Most of the demo can be viewed in the developer's console.</p>
-    </header>
-	<section id="section-1">
-        <h2>Section 1</h2>
-        <p id="p1" class="class" name="paragraph">Bacon ipsum dolor amet pig landjaeger sausage, bacon meatloaf beef filet mignon brisket buffalo kielbasa tail. Bacon buffalo fatback ham hock capicola rump tail. Chicken sirloin frankfurter, jerky shankle meatball chuck brisket corned beef doner alcatra. Turducken corned beef rump sirloin boudin chuck meatball. Shank ground round short loin ball tip.</p>
-        <p id="p2" class="class" name="paragraph">Shankle leberkas tenderloin fatback chuck bresaola pig shoulder ground round ham drumstick spare ribs. Shankle chislic flank fatback, tongue meatloaf ground round sirloin. Pancetta jerky brisket, tri-tip beef ribs pork belly t-bone porchetta picanha. Rump tail brisket shoulder salami, burgdoggen tongue.</p>
-        <p id="p3" class="class" name="paragraph">Bacon short loin tenderloin kevin bresaola boudin porchetta prosciutto. Short ribs drumstick shankle jerky pancetta ground round chislic chicken picanha cupim. Flank jowl ham spare ribs hamburger, beef ribs pork chop turkey. Pork chop chuck hamburger pork ribeye, meatloaf frankfurter ham hock. Venison boudin beef ribs, turkey cow ham hock tail. Shank turducken filet mignon, capicola sausage doner beef ribs swine.</p>
-        <p id="p4" class="class" name="paragraph">Strip steak kielbasa porchetta tri-tip, tail ribeye pork chop. Sausage cow boudin venison, capicola alcatra jerky pastrami chicken cupim. Pancetta ground round kielbasa salami, leberkas porchetta jowl ham meatloaf pork t-bone picanha. Spare ribs jowl ham hock bacon sirloin shank andouille burgdoggen biltong pig pancetta tenderloin prosciutto flank. Boudin chislic pork chop, pancetta turkey fatback chicken turducken swine. Drumstick beef ribs shank salami corned beef hamburger pork belly cow tail. Shankle hamburger bacon pork loin brisket.</p>
-        <p id="p5" class="class" name="paragraph">Boudin short ribs buffalo doner brisket strip steak. Pork chop chicken meatloaf burgdoggen pork belly tri-tip, shankle corned beef leberkas pancetta salami ham hock short ribs. Sausage t-bone pastrami chicken. Burgdoggen corned beef ham hock brisket, buffalo kielbasa tenderloin rump jowl landjaeger short loin meatloaf picanha swine.</p>
-        <p id="p6" class="class" name="paragraph">Chislic short loin shank drumstick shankle porchetta ground round sirloin tongue. Filet mignon kevin shoulder, tri-tip ground round ball tip leberkas chuck buffalo flank doner shank ham sausage. Pancetta doner pork belly bresaola. Tail picanha salami burgdoggen pancetta, porchetta chicken pig.</p>
-        <p id="p7" class="class" name="paragraph">Pastrami picanha kevin, andouille venison pork belly sausage chuck tenderloin capicola boudin swine. Capicola sausage jerky doner, hamburger leberkas ground round pork loin meatloaf shank. Jerky pork beef ham hock short loin drumstick cupim. Pancetta tenderloin prosciutto, jowl biltong boudin shoulder turducken pork turkey pig. Short ribs corned beef bresaola biltong pork belly pork chop. Pastrami chicken t-bone landjaeger, prosciutto boudin tri-tip picanha meatball short loin. Turkey boudin meatball fatback tenderloin pork chop pork beef ribs chislic salami short ribs shank.</p>
-        <p id="p8" class="class" name="paragraph">Cupim pancetta burgdoggen, t-bone salami jowl pork belly cow rump ball tip shankle. Shankle salami andouille rump. Porchetta leberkas strip steak, picanha prosciutto chuck bacon corned beef tongue. Pork belly brisket burgdoggen, jowl strip steak beef ribs boudin porchetta tongue tenderloin venison andouille chuck corned beef kevin.</p>
-        <p id="p9" class="class" name="paragraph">Landjaeger beef ribs chicken alcatra t-bone salami. Fatback bacon tail kielbasa. Rump pork chop ham hock, turducken swine beef leberkas. Pancetta strip steak jerky picanha, bresaola short ribs sirloin beef ribs cupim.</p>
-        <p id="p10" class="class" name="paragraph">Pork belly sirloin capicola, ground round ribeye swine kielbasa beef turducken chuck jerky flank ham hock rump leberkas. Pastrami beef sausage cow, jerky landjaeger shoulder tail porchetta biltong. Porchetta boudin short ribs pork chop. Chislic shankle sirloin venison. Pig pork picanha, t-bone salami meatloaf pork chop. Leberkas picanha beef ribs chuck short loin ham brisket beef filet mignon salami cupim ribeye sausage kevin alcatra.</p>
-    </section>
-    <section id="section-2">
-        <h2>Section 2</h2>
-        <p id="remove-1">Remove me #1</p>
-        <p id="remove-2">Remove me #2</p>
-    </section>
-    <section id="section-3">
-        <h2>Section 3</h2>
-        &nbsp;<input type="text" class="phone" id="phone-1" placeholder="enter phone number: (xxx)xxx-xxxx"/>
-        $<input type="text" class="currency" id="currency-1" placeholder="enter currency: x,xxx.xx"/>
-    </section>
-    <section>
-        <h2>Section 4</h2>
-        <input type="text" id="redirect-url" value="./example.htm#reloaded"/>
-        <button id="redirect-btn">Redirect</button>
-        <input type="text" id="redirect-url-2" value="./example.htm?qs1=test"/>
-        <button id="redirect-btn-2">Set Querystring</button>
-    </section>
-    <section>
-        <h2>Section 5</h2>
-        <button id="event-btn">Event Listener Demo</button>
-    </section>
-    <section>
-        <h2>Section 6</h2>
-        <input type="text" id="copy-text" value="This is the copy text"/>
-        <button id="copy-btn">Copy</button>
-    </section>
-	<footer></footer>
-	<script type="text/javascript" src="../javascript-helper.js"></script>
-	<script type="text/javascript" src="js/example.js"></script>
-</body>
-</html>
-```
 #Select
+\HTML
 ```html
 <p id="p1" class="class" name="paragraph">Bacon ipsum dolor amet pig landjaeger sausage, bacon meatloaf beef filet mignon brisket buffalo kielbasa tail. Bacon buffalo fatback ham hock capicola rump tail. Chicken sirloin frankfurter, jerky shankle meatball chuck brisket corned beef doner alcatra. Turducken corned beef rump sirloin boudin chuck meatball. Shank ground round short loin ball tip.</p>
         <p id="p2" class="class" name="paragraph">Shankle leberkas tenderloin fatback chuck bresaola pig shoulder ground round ham drumstick spare ribs. Shankle chislic flank fatback, tongue meatloaf ground round sirloin. Pancetta jerky brisket, tri-tip beef ribs pork belly t-bone porchetta picanha. Rump tail brisket shoulder salami, burgdoggen tongue.</p>
@@ -75,6 +15,7 @@ This library contains several commonly used objects
         <p id="p10" class="class" name="paragraph">Pork belly sirloin capicola, ground round ribeye swine kielbasa beef turducken chuck jerky flank ham hock rump leberkas. Pastrami beef sausage cow, jerky landjaeger shoulder tail porchetta biltong. Porchetta boudin short ribs pork chop. Chislic shankle sirloin venison. Pig pork picanha, t-bone salami meatloaf pork chop. Leberkas picanha beef ribs chuck short loin ham brisket beef filet mignon salami cupim ribeye sausage kevin alcatra.</p>
 ```
 
+\JavaScript
 ```javascript
 /**
  * Select Examples
