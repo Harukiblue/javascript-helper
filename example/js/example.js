@@ -297,3 +297,14 @@ console.log(
     "\nJSHelper random decimal from 1 to 10:",
     $(1,10).RandomDecimal()
 );
+/**
+ * QueryString
+ */
+console.log("\n***QueryString***\nClick on 'Set Querystring' button to view QueryString demo");
+$("#redirect-btn-2").AddEvent("click",function(e){
+    $($("#redirect-url-2").elem.value).QueryString();
+});
+console.log(
+    "JSHelper get the qs1 query string value:",
+    $("qs1").QueryString()
+)
