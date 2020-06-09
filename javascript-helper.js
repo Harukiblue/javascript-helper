@@ -99,6 +99,7 @@ JSHelper.prototype.Remove = function(elem){
 function Phone(value){
     if(value !== undefined) this.value = this.convertToPhone(value);
     this.isValid = this.Validate(this.value);
+    this.value = this.isValid ? this.value : value;
 }
 Phone.prototype.convertToPhone = function(value){
     if(value === undefined || value === null || value === ""){return null;}
