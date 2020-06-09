@@ -236,6 +236,29 @@ console.log(
 );
 var baseObjArr = [{index:0,key:"d"},{index:1,key:"c"},{index:2,key:"a"},{index:3,key:"b"}];
 console.log(
-    "traditional Vanilla JS sort object array:",
+    "JSHelper sort object array:",
     "\nbefore", baseObjArr, "after", $().ObjectArray(baseObjArr).Sort("key")
 );
+
+/**
+ * Replace
+ */
+console.log("\n***Replace***");
+console.log(
+    "traditional Vanilla remove all digis from '1a,2b,3c,4d,5e,6f,7g,8h,9i with Replace:",
+    "1a,2b,3c,4d,5e,6f,7g,8h,9i".replace(new RegExp("\\d","g"),"")
+);
+console.log(
+    "JSHelper remove all digis from '1a,2b,3c,4d,5e,6f,7g,8h,9i with Replace:",
+    $("1a,2b,3c,4d,5e,6f,7g,8h,9i").Replace("\\d","")
+);
+
+/**
+ * Redirect
+ */
+console.log("\n***Redirect***");
+var elem = $("#redirect-url").elem;
+elem.value = elem.value + $().Timestamp()
+$("#redirect-btn").AddEvent("click",function(e){
+    $(elem.value).Redirect();
+})

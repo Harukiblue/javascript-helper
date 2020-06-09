@@ -289,13 +289,12 @@ JSHelper.prototype.ObjectArray = function(arr){
 /**
  * Replace
  */
-JSHelper.prototype.Replace = function(text, pattern, value, options){
-    if(text === undefined && this.params[0] !== undefined) value = this.params[0]; 
-    if(pattern === undefined && this.params[1] !== undefined) value = this.params[1]; 
-    if(value === undefined && this.params[2] !== undefined) value = this.params[2]; 
-    if(options === undefined && this.params[3] !== undefined) value = this.params[3]; 
+JSHelper.prototype.Replace = function(pattern, value, options){
+    if(pattern === undefined) return null;
+    if(value === undefined) return null;
     options = options === undefined ? "g" : options;
-	text.replace(new RegExp(pattern, options), value);
+    text = this.params[0]; 
+	return text.replace(new RegExp(pattern, options), value);
 }
 /**
  * Redirect
