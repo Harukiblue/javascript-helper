@@ -319,3 +319,48 @@ $("#event-btn").AddEvent("click", function(e){
 console.log(
     "JSHelper click on 'Event Listener Demo' to view the event listener demo:",
 );
+
+/**
+ * IsEmpty
+ */
+console.log("\n***IsEmpty***");
+console.log(
+    "JSHelper is {} empty?:",
+    $({}).IsEmpty(),
+    "\nJSHelper is {key:'value''} empty?:",
+    $({key:"value"}).IsEmpty(),
+    "\nJSHelper is [] empty?:",
+    $([]).IsEmpty(),
+    "\nJSHelper is [1] empty?:",
+    $([1]).IsEmpty(),
+    "\nJSHelper is '' empty?:",
+    $("").IsEmpty(),
+    "\nJSHelper is 'a' empty?:",
+    $("a").IsEmpty(),
+    "\nJSHelper is undefined empty?:",
+    $(undefined).IsEmpty(),
+    "\nJSHelper is true null empty?:",
+    $().IsEmpty(),
+    "\nJSHelper is null empty?:",
+    $(null).IsEmpty()
+);
+
+/**
+ * Cookie
+ */
+console.log("\n***Cookie***");
+$().Cookie().Create("test","this is a test");
+console.log(
+    "JSHelper create and read cookie test:",
+    $().Cookie().Read("test")
+);
+$().Cookie().Update("test","this is an updated test");
+console.log(
+    "JSHelper update and read cookie test:",
+    $().Cookie().Read("test")
+);
+$().Cookie().Delete("test");
+console.log(
+    "JSHelper delete and read cookie test:",
+    $().Cookie().Read("test")
+);

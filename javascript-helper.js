@@ -382,8 +382,9 @@ JSHelper.prototype.AddEvent = function(evnt, callback){
  * IsEmpty
  */
 JSHelper.prototype.IsEmpty = function(value){
-    if(value === undefined && this.params[0] !== undefined) value = this.params[0]; 
-    return (value == "" || (typeof(value) === "object" && Object.keys(value).length == 0) || value === [] || value === null || value === undefined);
+    if(value === undefined && this.params.length > 0) value = this.params[0]; 
+    if(value === null || value === undefined) return true;
+    return (value == "" || (typeof(value) === "object" && Object.keys(value).length == 0) || value === []);
 }
 /**
  * Cookie
