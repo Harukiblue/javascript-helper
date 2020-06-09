@@ -71,10 +71,13 @@ JavaScript
 HTML
 ```html
 <section id="create-elem-container">
+    <p id="remove-1">Remove this paragraph tag: 1</p>
+    <p id="remove-2">Remove this paragraph tag: 2</p>
+</section>
 ```
 JavaScript
 ```javascript
-// Traditional Vanilla JS: create a paragraph tag and append it to the body
+// Traditional Vanilla JS: append a new paragraph tag to container
     var newElem = document.createElement("P");
     newElem.setAttribute("id", "new-elem-1");
     newElem.setAttribute("class","new-elem-1");
@@ -83,7 +86,7 @@ JavaScript
     newElem.innerHTML = "new element 1";
     var par = document.getElementById("create-elem-container");
     par.appendChild(newElem);
-// JSHelper: Add element to the DOM",
+// JSHelper: append a new paragraph tag to container",
     $("#create-elem-container").Add({
         tag: "P",
         id: "new-elem-2",
@@ -92,18 +95,13 @@ JavaScript
         value: "new element 2",
         innerHTML: "new element 2",
     })
-    
-var r1 = document.getElementById("remove-1");
-r1.parentNode.removeChild(r1);
-console.log(
-    "traditional Vanilla JS: Remove element from DOM",
-     r1.parentNode === null
-);
 
-console.log(
-    "JSHelper: Remove element from the DOM",
+
+// Traditional Vanilla JS: remove elem from DOm
+    var r1 = document.getElementById("remove-1");
+    r1.parentNode.removeChild(r1);
+// JSHelper: Remove element from the DOM",
     $("#remove-2").Remove()
-);
 ```
 * Phone
 HTML
