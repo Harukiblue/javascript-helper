@@ -68,7 +68,7 @@ HTML
 ```
 JavaScript
 ```javascript
-// JSHelper: append a new paragraph tag to container",
+// JSHelper: append a new paragraph tag to container
     $("#create-elem-container").Add({
         tag: "P",
         id: "new-elem-2",
@@ -76,9 +76,9 @@ JavaScript
         type: "new-elem-2",
         value: "new element 2",
         innerHTML: "new element 2",
-    })
-// JSHelper: Remove element from the DOM",
-    $("#remove-2").Remove()
+    });
+// JSHelper: Remove element from the DOM
+    $("#remove-2").Remove();
 ```
 ## Phone
 HTML
@@ -89,7 +89,7 @@ HTML
 JavaScript
 ```javascript
 // JSHelper: 3213213211"
-    $("3213213211").Phone()
+    $("3213213211").Phone();
 // JSHelper: 321-321-3211"
     $("321-321-3211").Phone();
 // JSHelper: BAD INPUT"
@@ -184,14 +184,10 @@ $("#redirect-btn").AddEvent("click",function(e){
 ## Shuffle
 JavaScript
 ```javascript
-// JSHelper shuffle array [1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f']:",
-    var shuffled = $([1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"]).Shuffle()
+// JSHelper shuffle array [1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f']
+    var shuffled = $([1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"]).Shuffle(),
 ```
 ## RandomInt
-HTML
-```html
-
-```
 JavaScript
 ```javascript
 // JSHelper random integer from 0 to 1
@@ -254,51 +250,31 @@ JavaScript
 ## Cookie
 JavaScript
 ```javascript
-console.log("\n***Cookie***");
-$().Cookie().Create("test","this is a test");
-console.log(
-    "JSHelper create and read cookie test:",
-    $().Cookie().Read("test")
-);
-$().Cookie().Update("test","this is an updated test");
-console.log(
-    "JSHelper update and read cookie test:",
-    $().Cookie().Read("test")
-);
-$().Cookie().Delete("test");
-console.log(
-    "JSHelper delete and read cookie test:",
-    $().Cookie().Read("test")
-);
-
+// JSHelper: create cookie
+    $().Cookie().Create("test","this is a test");
+// JSHelper: read cookie
+    $().Cookie().Read("test");
+// JSHelper: update cookie
+    $().Cookie().Update("test","this is an updated test");
+// JSHelper: delete cookie
+    $().Cookie().Delete("test");
 ```
 ## Copy
 HTML
 ```html
-
+<input id="field1" value="the initial value">
+<button id="copy-btn">Copy</button>
 ```
 JavaScript
 ```javascript
-console.log("\n***Copy***");
 $("#copy-btn").AddEvent("click",function(e){
-    $("#copy-text").Copy();
-    alert("The text has been added to your clipboard.")
+    $("#field1").Copy();
+    alert("The text has been added to your clipboard.");
 });
-console.log(
-    "JSHelper click the Copy button to copy the text in the field:"
-);
-
 ```
 ## DetectBrowser
-HTML
-```html
-
-```
 JavaScript
 ```javascript
-console.log("\n***DetectBrowser***");
-console.log(
-    "JSHelper list the type of browser:",
-    $().DetectBrowser()
-);
+// JSHelper list the type of browser
+    $().DetectBrowser();
 ```
