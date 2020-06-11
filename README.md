@@ -143,7 +143,7 @@ JavaScript
 // JSHelper: Register elements with "phone" class as a phone field
     $(".phone").RegisterPhoneFields().selected;
 ```
-** Currency
+## Currency
 HTML
 ```html
 <input type="text" class="currency" id="currency-field-1" placeholder="enter currency">
