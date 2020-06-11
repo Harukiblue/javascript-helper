@@ -129,37 +129,37 @@ JavaScript
 ## Phone
 HTML
 ```html
-
+<input type="text" class="phone" id="phone-field-1" placeholder="enter phne number">
+<input type="text" class="phone" id="phone-field-2" placeholder="enter phne number">
 ```
 JavaScript
 ```javascript
-console.log("\n***Phone***");
-console.log(
-    "JSHelper: 3213213211",
-    $("3213213211").Phone(),
-    "\nJSHelper: 321-321-3211",
-    $("321-321-3211").Phone(),
-    "\nJSHelper: BAD INPUT",
-    $("BAD INPUT").Phone(),
-    "\n",$(".phone").RegisterPhoneFields().selected
+// JSHelper: 3213213211"
+    $("3213213211").Phone()
+// JSHelper: 321-321-3211"
+    $("321-321-3211").Phone();
+// JSHelper: BAD INPUT"
+    $("BAD INPUT").Phone();
+// JSHelper: Register elements with "phone" class as a phone field
+    $(".phone").RegisterPhoneFields().selected;
 );
 ```
 ** Currency
 HTML
 ```html
-
+<input type="text" class="currency" id="currency-field-1" placeholder="enter currency">
+<input type="text" class="currency" id="currency-field-2" placeholder="enter currency">
 ```
 JavaScript
 ```javascript
-console.log("\n***Currency***");
-console.log(
-    "JSHelper: 1234",
-    $("1234").Currency(),
-    "\nJSHelper: 1.23",
-    $("1.23").Currency(),
-    "\nJSHelper: BAD INPUT",
-    $("BAD INPUT").Currency(),
-    "\n",$(".currency").RegisterCurrencyFields().selected
+// JSHelper: 1234
+    $("1234").Currency();
+// JSHelper: 1.23
+    $("1.23").Currency();
+// JSHelper: BAD INPUT
+    $("BAD INPUT").Currency();
+// JSHelper: Register elements with "currency" class as a currency field
+    $(".currency").RegisterCurrencyFields().selected;
 );
 
 ```
