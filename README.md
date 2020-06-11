@@ -164,41 +164,29 @@ JavaScript
 
 ```
 ## Timestamp
-HTML
-```html
-
-```
 JavaScript
 ```javascript
-console.log("\n***Timestamp***");
-console.log(
-    "JSHelper null:",
-    $().Timestamp(),
-    "\nJSHelper Year:",
-    $("%Y").Timestamp(),
-    "\nJSHelper Month #:",
-    $("%m").Timestamp(),
-    "\nJSHelper Month name:",
-    $("%N").Timestamp(),
-    "\nJSHelper Day:",
-    $("%d").Timestamp(),
-    "\nJSHelper Hour:",
-    $("%H").Timestamp(),
-    "\nJSHelper Minute:",
-    $("%M").Timestamp(),
-    "\nJSHelper Seconds:",
-    $("%S").Timestamp(),
-);
-
+// "JSHelper null:
+    $().Timestamp();
+// JSHelper Year:
+    $("%Y").Timestamp();
+// JSHelper Month #: 
+    $("%m").Timestamp();
+// JSHelper Month name:
+    $("%N").Timestamp();
+// JSHelper Day:
+    $("%d").Timestamp();
+// JSHelper Hour:
+    $("%H").Timestamp();
+// JSHelper Minute:
+    $("%M").Timestamp();
+// JSHelper Seconds:
+    $("%S").Timestamp();
 ```
 ## Switch
-HTML
-```html
-
-```
 JavaScript
 ```javascript
-console.log("\n***Switch***");
+// Traditional Vanilla JS switch
 var switchOutput1 = "";
 switch(Math.floor(Math.random()*4)+1){
     case 1: 
@@ -214,10 +202,8 @@ switch(Math.floor(Math.random()*4)+1){
         switchOutput1 = "four"; 
     break;
 }
-console.log(
-    "traditional Vanilla JS Random switch:",
-    switchOutput1
-);
+console.log(switchOutput1);
+// JSHelper Alternative object oriented switch
 switchOutput2 = "";
 var scenario = $().Switch();
 scenario.Add(1, function(){switchOutput2 = "one";});
@@ -225,40 +211,20 @@ scenario.Add(2, function(){switchOutput2 = "two";});
 scenario.Add(3, function(){switchOutput2 = "three";});
 scenario.Add(4, function(){switchOutput2 = "four";});
 scenario.DoIf(1);
-console.log(
-    "JSHelper Do if condition is 1:",
-    switchOutput2,
-);
+console.log(switchOutput2);
 scenario.DoRandom();
-console.log(
-    "JSHelper Do random case:",
-    switchOutput2,
-);
+console.log(switchOutput2);
 scenario.DoAll();
-console.log(
-    "JSHelper Do all cases:",
-    switchOutput2,
-);
+console.log(switchOutput2);
 scenario.RemoveIf(4);
-console.log(
-    "JSHelper RemoveIf condition is 4:",
-    scenario.collection,
-);
+console.log(switchOutput2);
 scenario.RemoveAt(1);
-console.log(
-    "JSHelper RemoveAt index 1:",
-    scenario.collection,
-);
-
+console.log(switchOutput2);
 ```
 ## ObjectArray
-HTML
-```html
-
-```
 JavaScript
 ```javascript
-console.log("\n***ObjectArray***");
+// Traditional Vanilla JS sort object array
 var beforeObjArr1 = [{index:0,key:"d"},{index:1,key:"c"},{index:2,key:"a"},{index:3,key:"b"}];
 var afterObjArr1 = [{index:0,key:"d"},{index:1,key:"c"},{index:2,key:"a"},{index:3,key:"b"}];
 afterObjArr1.sort(function(a,b){
@@ -267,46 +233,35 @@ afterObjArr1.sort(function(a,b){
     return 0;
 });
 console.log(
-    "traditional Vanilla JS sort object array:",
-    "\nbefore", beforeObjArr1, "after", afterObjArr1
+    "before", beforeObjArr1, "after", afterObjArr1
 );
+// JSHelper: sort object array
 var baseObjArr = [{index:0,key:"d"},{index:1,key:"c"},{index:2,key:"a"},{index:3,key:"b"}];
 console.log(
-    "JSHelper sort object array:",
-    "\nbefore", baseObjArr, "after", $().ObjectArray(baseObjArr).Sort("key")
+    "before", baseObjArr, "after", $().ObjectArray(baseObjArr).Sort("key")
 );
-
 ```
 ## Replace
-HTML
-```html
-
-```
 JavaScript
 ```javascript
-console.log("\n***Replace***");
-console.log(
-    "traditional Vanilla remove all digis from '1a,2b,3c,4d,5e,6f,7g,8h,9i with Replace:",
-    "1a,2b,3c,4d,5e,6f,7g,8h,9i".replace(new RegExp("\\d","g"),"")
+// Traditional Vanilla remove all digis from '1a,2b,3c,4d,5e,6f,7g,8h,9i with string replace
+    "1a,2b,3c,4d,5e,6f,7g,8h,9i".replace(new RegExp("\\d","g"),"");
 );
-console.log(
-    "JSHelper remove all digis from '1a,2b,3c,4d,5e,6f,7g,8h,9i with Replace:",
-    $("1a,2b,3c,4d,5e,6f,7g,8h,9i").Replace("\\d","")
+// JSHelper remove all digis from '1a,2b,3c,4d,5e,6f,7g,8h,9i with Replace
+    $("1a,2b,3c,4d,5e,6f,7g,8h,9i").Replace("\\d","");
 );
 
 ```
 ## Redirect
 HTML
 ```html
-
+<button id="redirect-btn">Redirect to google</button>
 ```
 JavaScript
 ```javascript
-console.log("\n***Redirect***\nClick on redirect button to view Redirect demo");
-var elem = $("#redirect-url").elem;
-elem.value = elem.value + $().Timestamp()
+// JSHelper: Redirect
 $("#redirect-btn").AddEvent("click",function(e){
-    $(elem.value).Redirect();
+    $("http://www.google.com").Redirect();
 });
 
 ```
