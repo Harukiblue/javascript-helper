@@ -286,16 +286,16 @@ console.log(
 );
 
 /**
- * RandomDecimal
+ * RandomDec
  */
-console.log("\n***RandomDecimal***");
+console.log("\n***RandomDec***");
 console.log(
     "JSHelper random decimal from 0 to 1:",
-    $().RandomDecimal(),
+    $().RandomDec(),
     "\nJSHelper random decimal from 0 to 100:",
-    $(100).RandomDecimal(),
+    $(100).RandomDec(),
     "\nJSHelper random decimal from 1 to 10:",
-    $(1,10).RandomDecimal()
+    $(1,10).RandomDec()
 );
 /**
  * QueryString

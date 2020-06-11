@@ -338,9 +338,9 @@ JSHelper.prototype.RandomInt = function(max, min){
     return Math.floor(Math.random() * ((max - min) + 1)) + min; 
 }
 /**
- * RandomDecimal
+ * RandomDec
  */
-JSHelper.prototype.RandomDecimal = function(max, min){
+JSHelper.prototype.RandomDec = function(max, min){
     if(max === undefined && this.params[0] !== undefined) max = this.params[0]; 
     if(min === undefined && this.params[1] !== undefined) min = this.params[1]; 
     max = max === undefined ? 1 : max;

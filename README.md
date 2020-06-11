@@ -1,6 +1,28 @@
 # javascript-helper
 This library contains several commonly used objects<br/>
-* Select\
+* Select - select an element(s)
+* Clear - deselect 
+* AddClass - add a class to an element
+* RemoveClass - remove a class from an element
+* Add - add element to the DOM
+* Remove - remove an element to the DOM
+* Phone - returns a Phone object. Can be used to validate a phone number and format a phone number, as well as add common event listeners for a phone field
+* Currency - returns a Currency object. Can be used to validate a currency number and format a currency number, as well as add common event listeners for a currency field
+* Timestamp - returns a timestamp. Can be customized.
+* Switch - returns a Switch object, which can be used as an Object Oriented alternative to the built in switch statement.
+* ObjectArray - returns an ObjectArray object, which can be used to easily sort by object key arrays populated with objects.
+* Replace - use RegExp to replace a pattern in a string
+* Redirect - redirect the page to a given URL.
+* Shuffle - randomly suffle an array.
+* RandomInt - returns a random integer between 2 given numbers
+* RandomDec - returns a random decimal between 2 given numbers
+* QueryString - return a query string from a url
+* AddEvent - add an event listener, cross browser compatible
+* IsEmpty - checks if parameter is empty, works with string and objects.
+* Cookie - Allows you to (CRUD: create, read, update, and delete) cookies
+* Copy - Copy the contents of an element to the clipboard.
+* DetectBrowser - determins what browser of user
+## Select\
 HTML
 ```html
 <p id="p1" class="class" name="paragraph">Bacon ipsum dolor amet pig landjaeger sausage, bacon meatloaf beef filet mignon brisket buffalo kielbasa tail. Bacon buffalo fatback ham hock capicola rump tail. Chicken sirloin frankfurter, jerky shankle meatball chuck brisket corned beef doner alcatra. Turducken corned beef rump sirloin boudin chuck meatball. Shank ground round short loin ball tip.</p>
