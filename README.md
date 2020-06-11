@@ -68,7 +68,7 @@ JavaScript
 // JSHelper: Selecting by object
     $(document.getElementById("id")).elem;
 ```
-* AddClass & RemoveClass\
+## AddClass & RemoveClass
 HTML
 ```html
 <p id="p1" class="class" name="paragraph">Bacon ipsum dolor amet pig landjaeger sausage, bacon meatloaf beef filet mignon brisket buffalo kielbasa tail. Bacon buffalo fatback ham hock capicola rump tail. Chicken sirloin frankfurter, jerky shankle meatball chuck brisket corned beef doner alcatra. Turducken corned beef rump sirloin boudin chuck meatball. Shank ground round short loin ball tip.</p>
@@ -90,7 +90,7 @@ JavaScript
 // JSHelper: Remove class
     $("#p4").RemoveClass("class");
 ```
-* Add & Remove\
+## Add & Remove
 HTML
 ```html
 <section id="create-elem-container">
@@ -126,7 +126,7 @@ JavaScript
 // JSHelper: Remove element from the DOM",
     $("#remove-2").Remove()
 ```
-* Phone
+## Phone
 HTML
 ```html
 
@@ -144,7 +144,7 @@ console.log(
     "\n",$(".phone").RegisterPhoneFields().selected
 );
 ```
-* Currency
+** Currency
 HTML
 ```html
 
@@ -163,7 +163,7 @@ console.log(
 );
 
 ```
-* Timestamp
+## Timestamp
 HTML
 ```html
 
@@ -191,7 +191,7 @@ console.log(
 );
 
 ```
-* Switch
+## Switch
 HTML
 ```html
 
@@ -251,7 +251,7 @@ console.log(
 );
 
 ```
-* ObjectArray
+## ObjectArray
 HTML
 ```html
 
@@ -277,7 +277,7 @@ console.log(
 );
 
 ```
-* Replace
+## Replace
 HTML
 ```html
 
@@ -295,7 +295,7 @@ console.log(
 );
 
 ```
-* Redirect
+## Redirect
 HTML
 ```html
 
@@ -310,7 +310,7 @@ $("#redirect-btn").AddEvent("click",function(e){
 });
 
 ```
-* Shuffle
+## Shuffle
 HTML
 ```html
 
@@ -324,7 +324,7 @@ console.log(
 );
 
 ```
-* RandomInt
+## RandomInt
 HTML
 ```html
 
@@ -342,7 +342,7 @@ console.log(
 );
 
 ```
-* RandomDecimal
+## RandomDecimal
 HTML
 ```html
 
@@ -360,7 +360,7 @@ console.log(
 );
 
 ```
-* QueryString
+## QueryString
 HTML
 ```html
 
@@ -377,7 +377,7 @@ console.log(
 )
 
 ```
-* AddEvent
+## AddEvent
 HTML
 ```html
 
@@ -393,7 +393,7 @@ console.log(
 );
 
 ```
-* IsEmpty
+## IsEmpty
 HTML
 ```html
 
@@ -423,7 +423,7 @@ console.log(
 );
 
 ```
-* Cookie
+## Cookie
 HTML
 ```html
 
@@ -448,7 +448,7 @@ console.log(
 );
 
 ```
-* Copy
+## Copy
 HTML
 ```html
 
@@ -465,7 +465,7 @@ console.log(
 );
 
 ```
-* DetectBrowser
+## DetectBrowser
 HTML
 ```html
 
