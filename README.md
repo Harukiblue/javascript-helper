@@ -22,7 +22,8 @@ This library contains several commonly used objects<br/>
 * Cookie - Allows you to (CRUD: create, read, update, and delete) cookies
 * Copy - Copy the contents of an element to the clipboard.
 * DetectBrowser - determins what browser of user
-## Select\
+***
+## Select
 HTML
 ```html
 <p id="p1" class="class" name="paragraph">Bacon ipsum dolor amet pig landjaeger sausage, bacon meatloaf beef filet mignon brisket buffalo kielbasa tail. Bacon buffalo fatback ham hock capicola rump tail. Chicken sirloin frankfurter, jerky shankle meatball chuck brisket corned beef doner alcatra. Turducken corned beef rump sirloin boudin chuck meatball. Shank ground round short loin ball tip.</p>
