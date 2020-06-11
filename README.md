@@ -142,7 +142,6 @@ JavaScript
     $("BAD INPUT").Phone();
 // JSHelper: Register elements with "phone" class as a phone field
     $(".phone").RegisterPhoneFields().selected;
-);
 ```
 ** Currency
 HTML
@@ -160,8 +159,6 @@ JavaScript
     $("BAD INPUT").Currency();
 // JSHelper: Register elements with "currency" class as a currency field
     $(".currency").RegisterCurrencyFields().selected;
-);
-
 ```
 ## Timestamp
 JavaScript
@@ -250,7 +247,6 @@ JavaScript
 // JSHelper remove all digis from '1a,2b,3c,4d,5e,6f,7g,8h,9i with Replace
     $("1a,2b,3c,4d,5e,6f,7g,8h,9i").Replace("\\d","");
 );
-
 ```
 ## Redirect
 HTML
@@ -263,7 +259,6 @@ JavaScript
 $("#redirect-btn").AddEvent("click",function(e){
     $("http://www.google.com").Redirect();
 });
-
 ```
 ## Shuffle
 HTML
